@@ -1,0 +1,26 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: olive;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-section {
+    background-color: lightgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#view-highscore {
+    text-decoration: none;
+    color: black;
+}
