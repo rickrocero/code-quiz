@@ -9,6 +9,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100px;
+    font-size: 30px;
 }
 
 .main-section {
@@ -17,7 +19,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 600px;
 
+}
+
+.main-section h1 {
+    font-size: 50px;
+}
+
+.main-section p {
+    padding: 40px 30px 30px 30px;
+    font-size: 20px;
+}
+
+#start-button {
+    font-size: 30px;
 }
 
 #view-highscore {

@@ -10,13 +10,31 @@
 <body>
     <header class="header">
         <a id="view-highscore" href="">View Highscores</a>
-        <p id="timer">Time:</p>
+        <p>Time Left:<span id="time-left"></span> seconds</p>
     </header>
-    <main class="main-section">
+    <main id="intro-message" class="main-section">
         <h1>Coding Quiz Challenge</h1>
-        <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
+        <p>Try to answer the following code-related questions within the time limit. <br> Keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
         <button id="start-button">Start Quiz</button>
     </main>
+    <div id="quiz" class="main-section">
+        <div id="quiz-question"></div>
+        <div id="possible-answers">
+            <button class="answer answer1"></button>
+            <button class="answer answer2"></button>
+            <button class="answer answer3"></button>
+            <button class="answer answer4"></button>
+        </div>
+        <span id="right-wrong"></span>
+    </div>
+    <div id="final-score">
+        <h1>All Done!</h1>
+        <p>Your final score is:</p>
+        <form action="">
+            <label for="user-initials">Enter Initials: </label>
+            <input type="text" name="user-initials" id="user-initials">
+        </form>
+    </div>
     <script src="./script.js"></script>
 </body>
 </html>
