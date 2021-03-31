@@ -1,43 +1,43 @@
 var questionArray = [
     {
-        question: "Question 1 goes here",
-        answer1: "answer1",
-        answer2: "answer2",
-        answer3: "answer3",
-        answer4: "answer4",
-        correctAnswer: "answer3"
+        question: "What is the name of Harry Potter's owl?",
+        answer1: "Fluffy",
+        answer2: "Scabbers",
+        answer3: "Hedwig",
+        answer4: "Crookshanks",
+        correctAnswer: "Hedwig"
     },
     {
-        question: "Question 2 goes here",
-        answer1: "answer1",
-        answer2: "answer2",
-        answer3: "answer3",
-        answer4: "answer4",
-        correctAnswer: "answer3"
+        question: "What beast lives in the Chamber of Secrets",
+        answer1: "Phoenix",
+        answer2: "Basilisk",
+        answer3: "Giant Spider",
+        answer4: "Dragon",
+        correctAnswer: "Basilisk"
     },
     {
-        question: "Question 3 goes here",
-        answer1: "answer1",
-        answer2: "answer2",
-        answer3: "answer3",
-        answer4: "answer4",
-        correctAnswer: "answer3"
+        question: "What is Sirius Black's nickname?",
+        answer1: "Moony",
+        answer2: "Wormtail",
+        answer3: "Padfoot",
+        answer4: "Prongs",
+        correctAnswer: "Padfoot"
     },
     {
-        question: "Question 4 goes here",
-        answer1: "answer1",
-        answer2: "answer2",
-        answer3: "answer3",
-        answer4: "answer4",
-        correctAnswer: "answer3"
+        question: "What plant did Harry eat to breathe underwater?",
+        answer1: "Gillyweed",
+        answer2: "Mandrake",
+        answer3: "Devil's Snare",
+        answer4: "Whomping Willow",
+        correctAnswer: "Gillyweed"
     },
     {
-        question: "Question 5 goes here",
-        answer1: "answer1",
-        answer2: "answer2",
-        answer3: "answer3",
-        answer4: "answer4",
-        correctAnswer: "answer3"
+        question: "Who tells Harry about the Room of Requirement?",
+        answer1: "Luna Lovegood",
+        answer2: "Neville Longbottom",
+        answer3: "Dobby",
+        answer4: "Ginny Weasley",
+        correctAnswer: "Dobby"
     }];
     
     // Variables
