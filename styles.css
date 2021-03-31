@@ -19,7 +19,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 100vh;
+
 
 }
 
@@ -30,6 +31,18 @@
 .main-section p {
     padding: 40px 30px 30px 30px;
     font-size: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+.score-list {
+    padding-block: 20px;
+}
+
+.highscore-btns {
+    display: flex;
 }
 
 #start-button {

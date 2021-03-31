@@ -56,7 +56,9 @@ var questionArray = [
     var timer;
     var timeLeftSpan = document.querySelector("#time-left");
     var rightWrongSpan = document.querySelector("#right-wrong");
-    var score = 0;
+    var score = 0;//localStorage.getItem("score");
+    var userScoreSpan = document.querySelector("#user-score");
+    
 
     // Renders questions & answers on page
     function displayQuestion() {
@@ -65,16 +67,6 @@ var questionArray = [
         answer2El.innerText = questionArray[currentIndex].answer2;
         answer3El.innerText = questionArray[currentIndex].answer3;
         answer4El.innerText = questionArray[currentIndex].answer4;
-        hide(finalScoreEl);
-    }
-
-    // Hides an element
-    function hide(element) {
-        element.style.display = "none";
-    }
-    // Shows an element
-    function show(element) {
-        element.style.display = "block";
     }
 
     
@@ -82,18 +74,21 @@ var questionArray = [
     answerButtons.forEach(function (ansBtn) {
         ansBtn.addEventListener("click", function (event) {
             var userGuess = event.target.innerText
-            // User is notified of correct or wrong answer
+            //  Notifies user of correct or wrong answer
             if (userGuess === questionArray[currentIndex].correctAnswer) {
                 score += 10;
                 rightWrongSpan.innerText = "Correct! 😀";
-                currentIndex++;
-                // Next question is presented immediately after user picks an answer
-                displayQuestion();
             } else {
                 // Wrong answers shave 10 seconds off timer
                 timeLeft -= 10;
                 rightWrongSpan.innerText = "Wrong 🙁";
-                currentIndex++;
+            }
+
+            currentIndex++;
+            // Next question is presented immediately after user picks an answer
+            if (currentIndex === questionArray.length) {
+                endGame();
+            } else {
                 displayQuestion();
             }
         })
@@ -102,18 +97,19 @@ var questionArray = [
     //1. Take the coding quiz
     // clicking start quiz button presents user with first question
     startBtnEl.addEventListener("click", function() {
-        hide(introEl);
-        show(quizEl);
+        introEl.classList.add("hide");
+        quizEl.classList.remove("hide");
         startTimer();
+        displayQuestion();
     })
 
-     
+    
     //2. Countdown Timer
     function startTimer() {
         clearInterval(timer);
         // give user 60 seconds to take quiz
-        timeLeft = 60;
         // display countdown on screen
+        timeLeft = 60;
         timeLeftSpan.innerText = timeLeft;
         timer = setInterval(function(){
             timeLeft--;
@@ -121,24 +117,54 @@ var questionArray = [
             // if time runs out, loss
             if (timeLeft < 1) {
                 clearInterval(timer);
-                alert("You lost! 🙁")
+                alert("You lost! 🙁");
+                endGame();
             }
             console.log(timeLeft);
         },1000)
     }
 
 
-    displayQuestion();
+    // After user answers last question:
+    function endGame() {
+        //show the final score container
+        finalScoreEl.classList.remove("hide");
+        //hide the questions container
+        quizEl.classList.add("hide");
+        //show final score
+        userScoreSpan.textContent = score;
+        //stop the timer
+        clearInterval(timer);
+    }
+
+
+    
 
 // TODO: after user is notified of right-wrong answer it disappears for the next question
 
-// TODO: After user answers last question:
-    // timer stops
-    // user is taken to score page
-
     
-// TODO: 3. Save wins/losses
-    // after quiz, update and render final score
+// TODO: 3. Save score
     // user submits name and highscore
-    // save to local storage
     // user is presented with highscores list and buttons to retake quiz or clear highscore list.
+
+    document.querySelector("#submit-btn").addEventListener("click",function(event) {
+        event.preventDefault();
+
+        //get user input
+        var initials = document.querySelector("#user-initials").value;
+
+        //lets get the data if it exists in local
+        var scoreList = JSON.parse(localStorage.getItem("scoreList")) || [];
+
+        //create a new data entry
+        var scoreEntry = {
+            user: initials,
+            score: score
+        }
+
+        //push new entry into scores list
+        scoreList.push(scoreEntry);
+
+        //set the updated score list to local srtorage - convert the JSON
+        localStorage.setItem("scoreList",JSON.stringify(scoreList));
+    });
