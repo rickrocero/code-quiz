@@ -1,4 +1,4 @@
-//get the local scroeList data
+//get the local scoreList data
 var scoreList = JSON.parse(localStorage.getItem("scoreList"));
 
 //construct a template literal
@@ -13,5 +13,5 @@ for (var i = 0; i < scoreList.length; i++) {
     `;
 }
 
-//conver the tempalte into html and insert into page
+//conver the template into html and insert into page
 document.querySelector(".score-list").innerHTML = template;
